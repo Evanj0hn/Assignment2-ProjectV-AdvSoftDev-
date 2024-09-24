@@ -13,6 +13,13 @@ struct STUDENT_DATA {
 
 int main() {
     ifstream file("StudentData.txt");  // This Open StudentData.txt
+
+    // to check if file opened successfully
+    if (!file.is_open()) {  
+        cerr << "Error: Could not open StudentData.txt" << endl;
+        return 1;  
+    }
+
     vector<STUDENT_DATA> students;     // using a Vector to store student data
     string line;
 
@@ -31,6 +38,15 @@ int main() {
         students.push_back(student);                   
     }
 
-    file.close();  
+    file.close();
+
+    // Only prints if compiled in debug mode
+    #ifdef _DEBUG
+        cout << "Student List (Debug Mode):" << endl;
+        for (const auto& student : students) {
+            cout << student.firstName << " " << student.lastName << endl;
+        }
+    #endif
+
     return 0;
 }
