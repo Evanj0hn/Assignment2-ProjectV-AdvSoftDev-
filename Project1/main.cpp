@@ -12,7 +12,7 @@ struct STUDENT_DATA {
 };
 
 int main() {
-    ifstream file("StudentData.txt");  // This Open StudentData.txt
+    ifstream file("StudentData.txt");  // This Opens StudentData.txt
 
     // to check if file opened successfully
     if (!file.is_open()) {  
